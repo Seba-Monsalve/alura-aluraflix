@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-import { Header, Badge, Footer, Category } from '../components'
+import { Header, Badge, Footer, Category ,Modal} from '../components'
 
 
 export const HomePage = () => {
@@ -20,6 +20,7 @@ export const HomePage = () => {
       </StyledHome>
       <Category />
       <Footer />
+      <Modal />
     </>
   )
 }

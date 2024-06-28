@@ -27,6 +27,7 @@ const StyledVideoList = styled.div`
   justify-content:space-between;
   width:100%;
   padding: 0.5em 0;
+  gap:1em
 `
 
 const StyledBadge = styled.div`

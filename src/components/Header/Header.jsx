@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Buttons } from './Buttons'
+import { Button } from '../'
 
 const StyledHeader = styled.header`
     height: 100px;
@@ -27,7 +27,11 @@ export const Header = () => {
     return (
         <StyledHeader >
             <StyledImage src="/public/logo.png" alt="logo_alura" />
-            <Buttons />
+            <div>
+
+            <Button color text='Home'/>
+            <Button  text='Nuevo Video'/>
+            </div>
         </StyledHeader>
     )
 }
