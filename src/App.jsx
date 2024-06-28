@@ -1,14 +1,13 @@
 
-import { Header, GlobalStyles, Home ,Category} from './components/'
+import { GlobalStyles, Category } from './components/'
+import { HomePage } from './pages/'
 
 function App() {
 
   return (
     <>
       <GlobalStyles />
-      <Header />
-      <Home />
-      <Category />
+      <HomePage />
     </>
   )
 }
