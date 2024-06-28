@@ -1,0 +1,5 @@
+export { GlobalStyles } from './GlobalStyles'
+export { Header } from './Header'
+export { Home } from './Home'
+export { Badge } from './Badge'
+export { Category } from './Category'
