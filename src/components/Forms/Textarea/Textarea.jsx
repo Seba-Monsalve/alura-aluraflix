@@ -1,0 +1,20 @@
+import styled from 'styled-components'
+import { Fieldset } from '../Fieldset/Fieldset'
+
+export const Textarea = ({ id, name, rows, size }) => {
+    return (
+        <Fieldset size={size}>
+            <label htmlFor="id">{name}</label>
+            <StyledTextarea id={id} name={name} rows={rows} />
+        </Fieldset>
+    )
+}
+
+const StyledTextarea = styled.textarea`
+border-radius:10px;
+border: solid #2271D1 3px;
+background-color: black;
+padding:0.5em ;
+color: white;
+width:calc(100% + 20px);
+`

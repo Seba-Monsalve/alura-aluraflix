@@ -1,59 +1,37 @@
 import styled from "styled-components"
 import { IoCloseCircle } from "react-icons/io5";
-import { Button } from "../Button";
+import { Button } from "../Forms/Button";
+import { Input } from "../Forms/Input/Input";
+import { Dropdown } from "../Forms/Dropdown/Dropdown";
+import { Title } from "../Title/Title";
+import { Textarea } from "../Forms/Textarea/Textarea";
 
 
-const inputs = [
-    {
-        id: 'titulo',
-        name: 'Titulo',
-        type: 'text',
-        placeholder: '¿Que titulo quieres ingresar?'
-    },
-    {
-        id: 'categoria',
-        name: 'Categoria',
-        type: 'text',
-        placeholder: ''
+import { inputs } from "../../data/inputs";
 
-    },
-    {
-        id: 'imagen',
-        name: 'Imagen',
-        type: 'text',
-        placeholder: 'Ingresa tu image'
-    },
-    {
-        id: 'video',
-        name: 'Video',
-        type: 'text',
-        placeholder: ''
-    },
-    {
-        id: 'descripcion',
-        name: 'Descripcion',
-        type: 'textarea',
-        placeholder: ''
-    }
-]
+
 
 
 export const Modal = () => {
     return (
         <>
             <StyledModal />
-
             <StyledForm>
                 <IoCloseCircle size={'2em'} color={'white'} style={{ position: 'relative', right: '-45%' }} />
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6em', width: '70%' }}>
-                    <StyledTitle> Editar Card: </StyledTitle>
-
-                    {inputs.map(({ name, id, type, placeholder }) =>
-                        <StyledFieldset key={id}>
-                            <label for={name}>{name}</label>
-                            <StyledInput type={type} id={id} name={name} placeholder={placeholder} />
-                        </StyledFieldset>
-                    )}
+                    <Title title='Editar Card:' />
+                    {inputs.map(({ name, id, type, placeholder, options,rows=4 }) => {
+                        return (
+                            (type == 'text') ?
+                                <Input type={type} id={id} name={name} placeholder={placeholder} />
+                                :
+                                (type == 'dropdown') ?
+                                    <Dropdown id={id} name={name} options={options} />
+                                    :
+                                    <Textarea id={id} name={name} rows={rows} />
+                        )
+                    })
+                    }
 
                     <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
                         <Button color text={'Guardar'} />
@@ -95,26 +73,4 @@ border-radius:  10px ;
 border:2px solid #6BD1FF;
 width:40%;
 `
-
-
-const StyledTitle = styled.h1`
-color: #6BD1FF;
-font-size:2em;
-`
-
-
-const StyledFieldset = styled.fieldset`
-display:flex;
-flex-direction: column;
-gap:10px;
-color: white;
-`
-const StyledInput = styled.input`
-border-radius:10px;
-border: solid #2271D1 3px;
-background-color: transparent;
-padding:0.5em ;
-
-`
-
 

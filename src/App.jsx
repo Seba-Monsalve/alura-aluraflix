@@ -1,13 +1,14 @@
 
-import { GlobalStyles, Category } from './components/'
-import { HomePage } from './pages/'
+import { GlobalStyles } from './components/'
+import { HomePage, NewVideoPage } from './pages/'
 
 function App() {
 
   return (
     <>
       <GlobalStyles />
-      <HomePage />
+      {/* <HomePage /> */}
+      <NewVideoPage />
     </>
   )
 }

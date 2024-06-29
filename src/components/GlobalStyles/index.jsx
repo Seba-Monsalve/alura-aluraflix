@@ -27,9 +27,14 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+html{
+	height:100vh;
+	width:100%;
+}
 
 body {
 	line-height: 1;
+	background-color: #000000E5;
 }
 ol, ul {
 	list-style: none;

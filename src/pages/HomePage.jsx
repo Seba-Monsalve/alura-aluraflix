@@ -1,27 +1,26 @@
 import styled from "styled-components"
 
-import { Header, Badge, Footer, Category ,Modal} from '../components'
+import { TemplatePage } from './TemplatePage'
+import { Badge, Category, Modal, Paragraph, Title } from '../components'
 
 
 export const HomePage = () => {
   return (
-    <>
-      <Header />
+    <TemplatePage>
       <StyledHome >
         <StyledFigure $image={'fondo_home.jpg'} />
         <StyledColumn>
-          <Badge title={'FRONT END'} />
-          <StyledTitle >Challenge React</StyledTitle>
-          <StyledParagraph>Fugiat aliquip magna aute est culpa nisi nostrud officia laborum. Anim esse laboris ea Lorem pariatur dolor esse. Culpa commodo aliqua eu dolore cillum. Lorem dolore nulla in culpa voluptate duis.</StyledParagraph>
+          <Badge title='FRONT END' />
+          <Title title={'Challenge React'} ></Title>
+          <Paragraph text='Fugiat aliquip magna aute est culpa nisi nostrud officia laborum. Anim esse laboris ea Lorem pariatur dolor esse. Culpa commodo aliqua eu dolore cillum. Lorem dolore nulla in culpa voluptate duis' />
         </StyledColumn>
         <StyledColumn>
           <StyledImage src="home_image.png" alt="" />
         </StyledColumn>
       </StyledHome>
       <Category />
-      <Footer />
       <Modal />
-    </>
+    </TemplatePage>
   )
 }
 
@@ -63,13 +62,7 @@ const StyledTitle = styled.h2`
       line-height: 53.91px;
       text-align: left;
 `
-const StyledParagraph = styled.p`
-      font-family: Roboto;
-      font-size: 18px;
-      font-weight: 300;
-      line-height: 21.09px;
-      text-align: left;
-`
+
 const StyledImage = styled.img`
   border-radius:30px;
   width:100%;
