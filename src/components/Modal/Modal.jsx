@@ -1,49 +1,65 @@
 import styled from "styled-components"
 import { IoCloseCircle } from "react-icons/io5";
-import { Button } from "../Forms/Button";
-import { Input } from "../Forms/Input/Input";
-import { Dropdown } from "../Forms/Dropdown/Dropdown";
-import { Title } from "../Title/Title";
-import { Textarea } from "../Forms/Textarea/Textarea";
+import { Button, Input, Dropdown, Title, Textarea } from "../";
 
 
 import { inputs } from "../../data/inputs";
+import { useContext } from "react";
+import { GlobalContext } from "../../context/GlobalProvider";
 
 
 
+const keys = {
+    "Titulo": "title",
+    "Categoria": "category",
+    "Imagen": "image_url",
+    "Video": "video_url",
+    "Descripcion": "description",
+}
 
-export const Modal = () => {
+
+
+export const Modal = ({ }) => {
+    const { state, dispatch } = useContext(GlobalContext)
+
+    const { video } = state.selectedVideo;
     return (
         <>
             <StyledModal />
             <StyledForm>
-                <IoCloseCircle size={'2em'} color={'white'} style={{ position: 'relative', right: '-45%' }} />
+                <IoCloseCircle
+                    onClick={() => dispatch({ type: 'toggleModal', payload: null })} size={'2em'} color={'white'}
+                    style={{
+                        position: 'relative',
+                        right: '-45%',
+                        cursor: 'pointer',
+                    }}
+                />
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6em', width: '70%' }}>
                     <Title title='Editar Card:' />
-                    {inputs.map(({ name, id, type, placeholder, options,rows=4 }) => {
+                    {inputs.map(({ name, id, type, placeholder, options, rows = 4 }) => {
                         return (
                             (type == 'text') ?
-                                <Input type={type} id={id} name={name} placeholder={placeholder} />
+                                <Input type={type} key={id} id={id} name={name} placeholder={placeholder} value={video[keys[name]]} />
                                 :
                                 (type == 'dropdown') ?
-                                    <Dropdown id={id} name={name} options={options} />
+                                    <Dropdown key={id} id={id} name={name} options={options} value={video[keys[name]]} />
                                     :
-                                    <Textarea id={id} name={name} rows={rows} />
+                                    <Textarea key={id} id={id} name={name} rows={rows} value={video[keys[name]]} />
                         )
                     })
                     }
-
                     <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
                         <Button color text={'Guardar'} />
                         <Button text={'Limpiar'} />
                     </div>
                 </div>
             </StyledForm>
+
         </>
 
     )
 }
-
 
 
 const StyledModal = styled.div`

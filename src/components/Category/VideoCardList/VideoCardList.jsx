@@ -1,17 +1,23 @@
 import styled from 'styled-components'
 import { VideoCard } from '../VideoCard/VideoCard'
+import { useContext } from 'react';
+import { GlobalContext } from '../../../context/GlobalProvider';
 
 
 export const VideoCardList = ({ category }) => {
-    const { videos, title,color } = category;
+    const { title, color } = category;
+
+    const { state, dispatch } = useContext(GlobalContext)
+    const videos = state.videos.filter(video => category.title.toLowerCase() == video.category.toLowerCase());
+
 
     return (
         <>
-            <StyledBadge $color ={color}>
+            <StyledBadge $color={color}>
                 {title.toUpperCase()}
             </StyledBadge>
             <StyledVideoList>
-                {videos.map(video => <VideoCard video={video} color = {color}key={video.id}/>)}
+                {videos.map(video => <VideoCard video={video} color={color} key={video.id} />)}
             </StyledVideoList>
             <br />
         </>

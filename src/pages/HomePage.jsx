@@ -2,9 +2,21 @@ import styled from "styled-components"
 
 import { TemplatePage } from './TemplatePage'
 import { Badge, Category, Modal, Paragraph, Title } from '../components'
+import { useContext, useEffect } from "react"
+import { GlobalContext } from "../context/GlobalProvider"
 
 
 export const HomePage = () => {
+
+  const { state, dispatch } = useContext(GlobalContext)
+
+  useEffect(() => {
+     fetch('http://localhost:3000/videos')
+      .then(resp => resp.json())
+      .then(data => dispatch({ type: 'getVideos', payload: data }))
+  }, [])
+
+
   return (
     <TemplatePage>
       <StyledHome >
@@ -19,7 +31,9 @@ export const HomePage = () => {
         </StyledColumn>
       </StyledHome>
       <Category />
-      <Modal />
+      {
+        state.isModalOpen && <Modal />
+      }
     </TemplatePage>
   )
 }

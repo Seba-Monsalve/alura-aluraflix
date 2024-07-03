@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 import { Fieldset } from '../Fieldset/Fieldset'
 
-export const Input = ({ type, id, name, placeholder, size, rows }) => {
+export const Input = ({ type, id, name, placeholder, size, value }) => {
     return (
         <Fieldset size={size}>
             <label htmlFor="id">{name}</label>
-            <StyledInput type={type} id={id} name={name} placeholder={placeholder}  
-            rows = {`${rows}`} />
+            <StyledInput type={type} id={id} name={name} placeholder={placeholder} value={value}
+            />
         </Fieldset>
     )
 }

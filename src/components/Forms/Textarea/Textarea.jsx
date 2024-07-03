@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 import { Fieldset } from '../Fieldset/Fieldset'
 
-export const Textarea = ({ id, name, rows, size }) => {
+export const Textarea = ({ id, name, rows, size,value}) => {
     return (
         <Fieldset size={size}>
             <label htmlFor="id">{name}</label>
-            <StyledTextarea id={id} name={name} rows={rows} />
+            <StyledTextarea id={id} name={name} rows={rows} value={value} />
         </Fieldset>
     )
 }

@@ -1,14 +1,18 @@
 
 import { GlobalStyles } from './components/'
 import { HomePage, NewVideoPage } from './pages/'
+import  GlobalContextProvider  from './context/GlobalProvider'
 
 function App() {
 
   return (
     <>
+
       <GlobalStyles />
-      {/* <HomePage /> */}
-      <NewVideoPage />
+      <GlobalContextProvider>
+        <HomePage />
+        {/* <NewVideoPage /> */}
+      </GlobalContextProvider>
     </>
   )
 }

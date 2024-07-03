@@ -1,11 +1,20 @@
 import styled from 'styled-components'
 import { IoTrashBinOutline, IoPencilOutline } from "react-icons/io5";
+import { useContext } from 'react';
+import { GlobalContext } from '../../../context/GlobalProvider';
 
 
 export const VideoCard = ({ video, color }) => {
+
+    const { title, id, categorie, image_url, video_url, description } = video;
+
+    const {state,dispatch} = useContext(GlobalContext)
+    
+
+    // NECESITO SACAR LOS VIDEOS DEL GET
     return (
         <StyledVideoCard $color={color}>
-            <img src={"video.jpg"} alt="" style={{}} />
+            <img src={image_url} alt="" style={{}} />
             <div style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'space-around'
                 ,
@@ -16,7 +25,7 @@ export const VideoCard = ({ video, color }) => {
                     <IoTrashBinOutline color='white' size={20} fontWeight={'bold'} />
                     Borrar
                 </StyledButtons>
-                <StyledButtons >
+                <StyledButtons onClick={() => dispatch({ type: 'toggleModal', payload: {video} })}>
                     <IoPencilOutline color='white' size={20} fontWeight={'bold'} />
                     Editar
                 </StyledButtons>

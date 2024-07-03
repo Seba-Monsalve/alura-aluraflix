@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import styled from 'styled-components'
 
 import { VideoCardList } from './VideoCardList/VideoCardList'
-
+import { GlobalContext } from '../../context/GlobalProvider'
 
 const categories = [
   {
@@ -37,7 +37,13 @@ const categories = [
   }
 ]
 
+
+
 export const Category = () => {
+
+  const {state,dispatch} = useContext(GlobalContext)
+
+  
   return (
     <StyledCategory>
       {

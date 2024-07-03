@@ -1,6 +1,6 @@
-import { createGlobalStyle} from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 
-export const  GlobalStyles = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -27,9 +27,16 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
+:root{
+	font-family: "Roboto", sans-serif;
+ 	 font-weight: 300;
+ 	 font-style: normal;
+}
 html{
 	height:100vh;
 	width:100%;
+
 }
 
 body {
