@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from 'react';
+import { createContext, useReducer } from 'react';
 
 export const GlobalContext = createContext(null)
 
@@ -19,6 +19,24 @@ const GlobalContextReducer = (state, action) => {
             {
                 return { ...state, videos: action.payload }
             }
+
+        case 'deleteVideo':
+            {
+                fetch('http://localhost:3000/videos/' + action.payload, {
+                    method: 'DELETE',
+                })
+                    .then(res => res.text()) // or res.json()
+                    .then(res => console.log(res))
+                return {
+                    ...state, videos: state.videos.filter((video)=>
+                        {
+                            console.log(video.id);
+                            console.log(action.payload);
+                            return video.id != action.payload
+
+                        })
+                }
+    }
 
 
         default: return state;

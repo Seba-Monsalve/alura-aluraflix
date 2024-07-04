@@ -23,7 +23,10 @@ export const Footer = () => {
   return (
     <StyledFooter>
 
-      <StyledImage src="/public/logo.png" alt="logo_alura" />
+      <a href="#">
+
+        <StyledImage src="/public/logo.png" alt="logo_alura" />
+      </a>
 
     </StyledFooter>
   )

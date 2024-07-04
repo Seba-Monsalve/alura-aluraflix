@@ -22,11 +22,13 @@ gap: 0px;
 opacity: 0px;
 `
 
-//TODO ARREGLAR LA FUENTE DE LAS LETRAS 
 export const Header = () => {
     return (
         <StyledHeader >
+            <a href="#">
+
             <StyledImage src="/public/logo.png" alt="logo_alura" />
+            </a>
             <div>
 
             <Button color text='Home'/>

@@ -41,8 +41,6 @@ const categories = [
 
 export const Category = () => {
 
-  const {state,dispatch} = useContext(GlobalContext)
-
   
   return (
     <StyledCategory>

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { VideoCard } from '../VideoCard/VideoCard'
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { GlobalContext } from '../../../context/GlobalProvider';
 
 
@@ -9,6 +9,8 @@ export const VideoCardList = ({ category }) => {
 
     const { state, dispatch } = useContext(GlobalContext)
     const videos = state.videos.filter(video => category.title.toLowerCase() == video.category.toLowerCase());
+
+
 
 
     return (
@@ -30,7 +32,7 @@ const StyledVideoList = styled.div`
   display: flex;
   flex-flow:row wrap;
   align-items: center;
-  justify-content:space-between;
+  justify-content:space-evenly;
   width:100%;
   padding: 0.5em 0;
   gap:1em

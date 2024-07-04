@@ -36,6 +36,7 @@ footer, header, hgroup, menu, nav, section {
 html{
 	height:100vh;
 	width:100%;
+	scroll-behavior:smooth;
 
 }
 
