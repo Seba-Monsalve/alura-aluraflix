@@ -1,24 +1,57 @@
 import { createContext, useReducer } from 'react';
+import { keys } from '../utils/keys';
 
 export const GlobalContext = createContext(null)
 
 const initialState = {
     isModalOpen: false,
     videos: [],
-    selectedVideo: null
+    selectedVideo: null,
 }
 
 
 const GlobalContextReducer = (state, action) => {
     switch (action.type) {
+        case 'editVideo': {
+            const { name, value } = action.payload
+            return { ...state, selectedVideo: { ...state.selectedVideo, [keys[name]]: value } };
+
+        }
         case 'toggleModal':
             {
                 return { ...state, selectedVideo: action.payload, isModalOpen: !state.isModalOpen }
             }
-        case 'getVideos':
+        case 'loadVideos':
             {
                 return { ...state, videos: action.payload }
             }
+        case 'saveVideo':
+            {
+                console.log(state.selectedVideo.id);
+                console.log(state.selectedVideo);
+
+                fetch('http://localhost:3000/videos/' + state.selectedVideo.id, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        body: state.selectedVideo
+                    }
+                })
+                    .then(res => res.text()) // or res.json()
+                    .then(res => console.log(res))
+
+
+                const newVideos = state.videos.map(video => {
+                    if (video.id == state.selectedVideo.id)
+                        return state.selectedVideo;
+                    return video;
+                });
+
+                return {
+                    ...state, videos: newVideos, isModalOpen: false
+                }
+            }
+
 
         case 'deleteVideo':
             {
@@ -28,18 +61,16 @@ const GlobalContextReducer = (state, action) => {
                     .then(res => res.text()) // or res.json()
                     .then(res => console.log(res))
                 return {
-                    ...state, videos: state.videos.filter((video)=>
-                        {
-                            console.log(video.id);
-                            console.log(action.payload);
-                            return video.id != action.payload
+                    ...state, videos: state.videos.filter((video) => {
+                        return video.id != action.payload
 
-                        })
+                    })
                 }
-    }
-
-
-        default: return state;
+            }
+        default: {
+            console.log('ENTRANDO AL DEFAULT');
+            return state;
+        }
     }
 };
 

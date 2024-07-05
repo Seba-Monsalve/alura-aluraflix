@@ -9,11 +9,11 @@ import { GlobalContext } from "../context/GlobalProvider"
 export const HomePage = () => {
 
   const { state, dispatch } = useContext(GlobalContext)
-  
+
   useEffect(() => {
     fetch('http://localhost:3000/videos')
       .then(resp => resp.json())
-      .then(data => dispatch({ type: 'getVideos', payload: data }))
+      .then(data => dispatch({ type: 'loadVideos', payload: data }))
   }, [])
 
 

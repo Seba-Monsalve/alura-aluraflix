@@ -6,16 +6,9 @@ import { Button, Input, Dropdown, Title, Textarea } from "../";
 import { inputs } from "../../data/inputs";
 import { useContext } from "react";
 import { GlobalContext } from "../../context/GlobalProvider";
+import { keys } from "../../utils/keys";
+import { Form } from "../Forms/Form";
 
-
-
-const keys = {
-    "Titulo": "title",
-    "Categoria": "category",
-    "Imagen": "image_url",
-    "Video": "video_url",
-    "Descripcion": "description",
-}
 
 
 
@@ -37,22 +30,7 @@ export const Modal = ({ }) => {
                 />
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6em', width: '70%' }}>
                     <Title title='Editar Card:' />
-                    {inputs.map(({ name, id, type, placeholder, options, rows = 4 }) => {
-                        return (
-                            (type == 'text') ?
-                                <Input type={type} key={id} id={id} name={name} placeholder={placeholder} value={video[keys[name]]} />
-                                :
-                                (type == 'dropdown') ?
-                                    <Dropdown key={id} id={id} name={name} options={options} value={video[keys[name]]} />
-                                    :
-                                    <Textarea key={id} id={id} name={name} rows={rows} value={video[keys[name]]} />
-                        )
-                    })
-                    }
-                    <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-                        <Button color text={'Guardar'} />
-                        <Button text={'Limpiar'} />
-                    </div>
+                   <Form />
                 </div>
             </StyledForm>
 
@@ -74,7 +52,7 @@ background-color: black;
 opacity:0.4;
 `
 
-const StyledForm = styled.form`
+const StyledForm = styled.div`
 position:fixed;
 top:50%;
 left:50%;

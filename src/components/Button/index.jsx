@@ -16,8 +16,8 @@ const StyledButton = styled.button`
     cursor:pointer;
 `
 
-export const Button = ({ text, color }) => {
+export const Button = ({ text, color,onClick }) => {
     return (color) ?
-        <StyledButton $color>{text} </StyledButton>
+        <StyledButton $color onClick={onClick}>{text} </StyledButton>
         : <StyledButton >{text} </StyledButton>
 }

@@ -1,11 +1,24 @@
 import styled from 'styled-components'
 import { Fieldset } from '../Fieldset/Fieldset'
+import { useContext, useState } from 'react'
+import { GlobalContext } from '../../../context/GlobalProvider'
 
-export const Textarea = ({ id, name, rows, size,value}) => {
+export const Textarea = ({ id, name, rows, size, value }) => {
+
+
+    const [inputValue, setinputValue] = useState(value)
+    const { dispatch } = useContext(GlobalContext)
+    const handleOnChange = (e) => {
+        const value = e.target.value;
+        setinputValue(value)
+        dispatch({ type: 'editVideo', payload: { name, value } })
+    }
     return (
         <Fieldset size={size}>
             <label htmlFor="id">{name}</label>
-            <StyledTextarea id={id} name={name} rows={rows} value={value} />
+            <StyledTextarea id={id} name={name} rows={rows} value={inputValue}
+                onChange={handleOnChange}
+            />
         </Fieldset>
     )
 }

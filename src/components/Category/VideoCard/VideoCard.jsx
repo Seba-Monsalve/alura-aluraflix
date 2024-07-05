@@ -12,7 +12,7 @@ export const VideoCard = ({ video, color }) => {
 
     const click = {
         'delete': () => dispatch({ type: 'deleteVideo', payload: id }),
-        'edit': () => dispatch({ type: 'toggleModal', payload: { video } })
+        'edit': () => dispatch({ type: 'toggleModal', payload:  video  })
     }
 
     // NECESITO SACAR LOS VIDEOS DEL GET
