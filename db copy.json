@@ -21,7 +21,7 @@
             "title": "¿Cuáles son las principales áreas de la programación?",
             "category": "Frontend",
             "image_url": "https://caelum-online-public.s3.amazonaws.com/ESP-2052+-++React%3A+practicando+React+con+Js/282x425+-+Genesis.png",
-            "link": "https: //www.youtube.com/embed/03cxUlwLVt4?si=zVCUQNO-eS2RZQTO",
+            "video_url": "https: //www.youtube.com/embed/03cxUlwLVt4?si=zVCUQNO-eS2RZQTO",
             "description": "una breve descripcion"
         },
         {
@@ -29,7 +29,7 @@
             "title": "Detección de intruso con IA",
             "category": "Backend",
             "image_url": "https://caelum-online-public.s3.amazonaws.com/ESP-2052+-++React%3A+practicando+React+con+Js/282x425+-+Ale.png",
-            "link": "https://www.youtube.com/embed/5T_Q_NtNLZE?si=M7D0JeagaKqsoaFs",
+            "video_url": "https://www.youtube.com/embed/5T_Q_NtNLZE?si=M7D0JeagaKqsoaFs",
             "description": "una breve descripcion"
         },
         {
@@ -73,4 +73,4 @@
             "description": "Una descripcion"
         }
     ]
-}
+  }

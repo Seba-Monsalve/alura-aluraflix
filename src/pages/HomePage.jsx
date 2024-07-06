@@ -1,6 +1,5 @@
 import styled from "styled-components"
 
-import { TemplatePage } from './TemplatePage'
 import { Badge, Category, Modal, Paragraph, Title } from '../components'
 import { useContext, useEffect } from "react"
 import { GlobalContext } from "../context/GlobalProvider"
@@ -11,15 +10,17 @@ export const HomePage = () => {
   const { state, dispatch } = useContext(GlobalContext)
 
   useEffect(() => {
+    if(state.firstLoad)
     fetch('http://localhost:3000/videos')
       .then(resp => resp.json())
       .then(data => dispatch({ type: 'loadVideos', payload: data }))
-  }, [])
+
+  }, [state.firstLoad])
 
 
 
   return (
-    <TemplatePage>
+    <>
       <StyledHome >
         <StyledFigure $image={'fondo_home.jpg'} />
         <StyledColumn>
@@ -35,7 +36,7 @@ export const HomePage = () => {
       {
         state.isModalOpen && <Modal />
       }
-    </TemplatePage>
+    </>
   )
 }
 

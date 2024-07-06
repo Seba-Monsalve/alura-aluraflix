@@ -1,46 +1,53 @@
-import { TemplatePage } from './TemplatePage'
 import { Title, Paragraph, Input, Dropdown, Textarea, Button } from '../components/'
 import styled from 'styled-components'
 import { inputs } from '../data/inputs'
-
-
+import { useContext } from 'react'
+import { GlobalContext } from '../context/GlobalProvider'
 
 
 export const NewVideoPage = () => {
+
+  const { state, dispatch } = useContext(GlobalContext)
+
+  const onHandleSave = () => {
+    dispatch({ type: 'createVideo' })
+  }
+  const onHandleClean = () => {
+    dispatch({ type: 'cleanSelectedVideo' })
+  }
+
   return (
-    <TemplatePage>
 
-      <div style={{
-        display: 'flex', flexDirection: 'column',
-        alignItems: 'center', justifyContent: 'center', color: 'white', gap: '1em', padding: '2em'
-      }}>
+    <div style={{
+      display: 'flex', flexDirection: 'column',
+      alignItems: 'center', justifyContent: 'center', color: 'white', gap: '1em', padding: '2em'
+    }}>
 
-        <StyledForm>
-          <Title title={'NUEVOS VIDEOS'} />
-          <Paragraph text={'Complete el formulario para crear una nueva tarjeta de video'.toUpperCase()} />
+      <StyledForm>
+        <Title title={'NUEVOS VIDEOS'} />
+        <Paragraph text={'Complete el formulario para crear una nueva tarjeta de video'.toUpperCase()} />
 
 
-          <StyledHr />
-          <Title title={'Crear Tarjeta'} />
-          <StyledHr />
+        <StyledHr />
+        <Title title={'Crear Tarjeta'} />
+        <StyledHr />
 
-          <StyleInputRow >
-            <Input size={'50%'} {...inputs[0]} />
-            <Dropdown size={'50%'} {...inputs[1]} />
-          </StyleInputRow>
-          <StyleInputRow >
-            <Input size={'50%'} {...inputs[2]} />
-            <Input size={'50%'} {...inputs[3]} />
-          </StyleInputRow>
-          <Textarea rows={6} size={'80%'} {...inputs[4]} />
-          <div style={{ display: 'flex', justifyContent: 'space-between', width: '50%' }}>
-            <Button color text={'Guardar'} />
-            <Button text={'Limpiar'} />
-          </div>
-        </StyledForm>
-      </div>
+        <StyleInputRow >
+          <Input size={'50%'} {...inputs[0]} />
+          <Dropdown size={'50%'} {...inputs[1]} />
+        </StyleInputRow>
+        <StyleInputRow >
+          <Input size={'50%'} {...inputs[2]} />
+          <Input size={'50%'} {...inputs[3]} />
+        </StyleInputRow>
+        <Textarea rows={6} size={'80%'} {...inputs[4]} />
+        <div style={{ display: 'flex', justifyContent: 'space-between', width: '50%' }}>
+          <Button color text={'Guardar'} onClick={onHandleSave} />
+          <Button text={'Limpiar'}  onClick={onHandleClean}/>
+        </div>
+      </StyledForm>
+    </div>
 
-    </TemplatePage>
   )
 }
 

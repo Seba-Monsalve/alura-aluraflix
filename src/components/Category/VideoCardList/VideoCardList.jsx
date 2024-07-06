@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { VideoCard } from '../VideoCard/VideoCard'
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { GlobalContext } from '../../../context/GlobalProvider';
 
 
@@ -8,9 +8,7 @@ export const VideoCardList = ({ category }) => {
     const { title, color } = category;
 
     const { state, dispatch } = useContext(GlobalContext)
-    const videos = state.videos.filter(video => category.title.toLowerCase() == video.category.toLowerCase());
-
-
+    const videos = state.videos.filter(video => title.toLowerCase() == video.category.toLowerCase());
 
 
     return (

@@ -34,5 +34,10 @@ export const inputs = [
         name: 'Descripcion',
         type: 'textarea',
         placeholder: 'Una breve descripcion del video'
+    },
+    {
+        type: 'submit',
+    }, {
+        type: 'reset',
     }
 ]

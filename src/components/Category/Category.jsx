@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from 'react'
 import styled from 'styled-components'
 
 import { VideoCardList } from './VideoCardList/VideoCardList'
-import { GlobalContext } from '../../context/GlobalProvider'
 
 const categories = [
   {

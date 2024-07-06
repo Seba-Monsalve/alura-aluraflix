@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Button } from '../'
+import { Link } from 'react-router-dom'
 
 const StyledHeader = styled.header`
     height: 100px;
@@ -25,15 +26,17 @@ opacity: 0px;
 export const Header = () => {
     return (
         <StyledHeader >
-            <a href="#">
-
-            <StyledImage src="/public/logo.png" alt="logo_alura" />
-            </a>
-            <div>
-
-            <Button color text='Home'/>
-            <Button  text='Nuevo Video'/>
-            </div>
+            <Link to="">
+                <StyledImage src="/logo.png" alt="logo_alura" />
+            </Link>
+            <ul style={{display:'flex'}}>
+                <li>
+                    <Link to={'/'}><Button color text='Home' />                    </Link>
+                </li>
+                <li>
+                    <Link to={'/new-video'}>  <Button text='Nuevo Video' />                </Link>
+                </li>
+            </ul>
         </StyledHeader>
     )
 }
