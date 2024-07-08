@@ -1,23 +1,13 @@
 import styled from 'styled-components'
 import { Fieldset } from '../Fieldset/Fieldset'
-import { useContext, useState } from 'react'
-import { GlobalContext } from '../../../context/GlobalProvider'
 
-export const Input = ({ type, id, name, placeholder, size, value }) => {
-
-    const [inputValue, setinputValue] = useState(value)
-    const { dispatch } = useContext(GlobalContext)
-    const handleOnChange = (e) => {
-        const value = e.target.value;
-        setinputValue(value)
-        dispatch({ type: 'editVideo', payload: { name, value } })
-    }
+export const Input = ({ type, id, name, placeholder, size, value,onChange }) => {
 
     return (
         <Fieldset size={size}>
             <label htmlFor="id">{name}</label>
-            <StyledInput type={type} id={id} name={name} placeholder={placeholder} value={inputValue}
-                onChange={handleOnChange}
+            <StyledInput type={type} id={id} name={name} placeholder={placeholder} value={value} required
+                onChange={onChange}
             />
         </Fieldset>
     )

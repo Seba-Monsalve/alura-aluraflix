@@ -3,17 +3,24 @@ import styled from 'styled-components'
 import { inputs } from '../data/inputs'
 import { useContext } from 'react'
 import { GlobalContext } from '../context/GlobalProvider'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 
 export const NewVideoPage = () => {
 
   const { state, dispatch } = useContext(GlobalContext)
 
+  const navigate = useNavigate()
+
   const onHandleSave = () => {
     dispatch({ type: 'createVideo' })
+    navigate('/')
   }
   const onHandleClean = () => {
     dispatch({ type: 'cleanSelectedVideo' })
+  }
+  const handleOnChange = (e) => {
+      dispatch({ type: 'editVideo', payload: { name: e.target.name, value: e.target.value } })
   }
 
   return (
@@ -27,23 +34,22 @@ export const NewVideoPage = () => {
         <Title title={'NUEVOS VIDEOS'} />
         <Paragraph text={'Complete el formulario para crear una nueva tarjeta de video'.toUpperCase()} />
 
-
         <StyledHr />
         <Title title={'Crear Tarjeta'} />
         <StyledHr />
 
         <StyleInputRow >
-          <Input size={'50%'} {...inputs[0]} />
-          <Dropdown size={'50%'} {...inputs[1]} />
+          <Input size={'50%'} {...inputs[0]} onChange={handleOnChange} />
+          <Dropdown size={'50%'} {...inputs[1]} onChange={handleOnChange} />
         </StyleInputRow>
         <StyleInputRow >
-          <Input size={'50%'} {...inputs[2]} />
-          <Input size={'50%'} {...inputs[3]} />
+          <Input size={'50%'} {...inputs[2]} onChange={handleOnChange} />
+          <Input size={'50%'} {...inputs[3]} onChange={handleOnChange} />
         </StyleInputRow>
-        <Textarea rows={6} size={'80%'} {...inputs[4]} />
+        <Textarea rows={6} size={'80%'} {...inputs[4]} onChange={handleOnChange} />
         <div style={{ display: 'flex', justifyContent: 'space-between', width: '50%' }}>
           <Button color text={'Guardar'} onClick={onHandleSave} />
-          <Button text={'Limpiar'}  onClick={onHandleClean}/>
+          <Button text={'Limpiar'} onClick={onHandleClean} />
         </div>
       </StyledForm>
     </div>

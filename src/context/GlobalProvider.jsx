@@ -16,7 +16,13 @@ const GlobalContextReducer = (state, action) => {
     switch (action.type) {
 
         case 'cleanSelectedVideo': {
-            return { ...state, selectedVideo: {} }
+            const cleanSelectedVideo = state.selectedVideo;
+            Object.keys(state.selectedVideo).forEach(
+                key => {
+                    if (key != 'category')
+                        cleanSelectedVideo[key] = ''
+                })
+            return { ...state, selectedVideo: { ...cleanSelectedVideo } }
         }
         case 'editVideo': {
             const { name, value } = action.payload

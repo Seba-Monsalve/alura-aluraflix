@@ -1,9 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Input, Dropdown, Textarea } from '../'
 import { inputs } from "../../data/inputs";
 import { GlobalContext } from '../../context/GlobalProvider';
 import styled from 'styled-components';
-
 
 const keys = {
     "Titulo": "title",
@@ -16,43 +15,38 @@ const keys = {
 
 export const Form = () => {
     const { state, dispatch } = useContext(GlobalContext)
-
-    const [video, setVideo] = useState(state.selectedVideo)
+    const video = state.selectedVideo;
 
     const handleOnClick = (e) => {
-        e.preventDefault()
+        console.log();
         dispatch({ type: 'saveVideo' })
     }
 
-useEffect(() => {
-}, [video])
+    const handleOnChange = (e) => {
+        dispatch({ type: 'editVideo', payload: { name: e.target.name, value: e.target.value } })
+    }
 
+    const handleOnReset = () => {
+        dispatch({ type: 'cleanSelectedVideo' })
+    }
 
-
-
-return (
-    <form >
-        {inputs.map(({ name, id, type, placeholder, options, rows = 4 }) => {
-
-            switch (type) {
-                case 'text':
-                    return <Input type={type} key={id} id={id} name={name} placeholder={placeholder} value={video[keys[name] || '']} />
-                case 'dropdown':
-                    return <Dropdown key={id} id={id} name={name} options={options} value={video[keys[name]]} />
-                case 'textarea':
-                    return <Textarea key={id} id={id} name={name} rows={rows} value={video[keys[name]]} />
-                case 'submit':
-                    return (<StyledInput $color value={'Guardar'} type='submit' onClick={handleOnClick} />)
-                case 'reset':
-                default:
-                    return <></>
+    return (
+        <form  >
+            {inputs.map(({ name, id, type, placeholder, options, rows = 4 }) => {
+                switch (type) {
+                    case 'text':
+                        return <Input type={type} key={id} id={id} name={name} placeholder={placeholder} value={video[keys[name]]} onChange={handleOnChange} />
+                    case 'dropdown':
+                        return <Dropdown key={id} id={id} name={name} options={options} value={video[keys[name]]} />
+                    case 'textarea':
+                        return <Textarea key={id} id={id} name={name} rows={rows} value={video[keys[name]]} onChange={handleOnChange} />
+                }
+            })
             }
-        })
-        }
-
-    </form>
-)
-
+            (<StyledInput $color value={'Guardar'} type='submit' onClick={handleOnClick} />)
+            (<StyledInput text={'Limpiar'} type='reset' value={'Limpiar'} onClick={handleOnReset} />)
+        </form>
+    )
 }
 
 

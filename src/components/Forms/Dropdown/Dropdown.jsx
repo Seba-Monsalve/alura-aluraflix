@@ -16,7 +16,7 @@ export const Dropdown = ({ id, name, options, size, value }) => {
     return (
         <Fieldset size={size}>
             <label htmlFor="id">{name}</label>
-            <StyledDropdown id={id} name={name} value={inputValue} onChange={ handleOnChange}>
+            <StyledDropdown id={id} name={name} value={inputValue} onChange={ handleOnChange}  required>
                 <option disabled selected hidden>Selecciona un item</option>
                 {options.map(option => <option key={option} value={option} >{option}</option>)}
             </StyledDropdown>

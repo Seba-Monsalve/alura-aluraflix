@@ -17,7 +17,11 @@ export const VideoCardList = ({ category }) => {
                 {title.toUpperCase()}
             </StyledBadge>
             <StyledVideoList>
-                {videos.map(video => <VideoCard video={video} color={color} key={video.id} />)}
+                {
+                    videos.map(video => {
+                        const videoClone = { ...video }
+                        return <VideoCard video={videoClone} color={color} key={video.id} />
+                    })}
             </StyledVideoList>
             <br />
         </>
