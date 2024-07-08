@@ -13,11 +13,9 @@ const initialState = {
 
 
 const GlobalContextReducer = (state, action) => {
-    console.log(action);
     switch (action.type) {
 
         case 'cleanSelectedVideo': {
-            console.log('asd');
             return { ...state, selectedVideo: {} }
         }
         case 'editVideo': {

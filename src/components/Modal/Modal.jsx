@@ -1,21 +1,16 @@
 import styled from "styled-components"
 import { IoCloseCircle } from "react-icons/io5";
-import { Button, Input, Dropdown, Title, Textarea } from "../";
+import {Title,  } from "../";
 
-
-import { inputs } from "../../data/inputs";
 import { useContext } from "react";
 import { GlobalContext } from "../../context/GlobalProvider";
-import { keys } from "../../utils/keys";
 import { Form } from "../Forms/Form";
 
 
 
 
 export const Modal = ({ }) => {
-    const { state, dispatch } = useContext(GlobalContext)
-
-    const { video } = state.selectedVideo;
+    const { dispatch } = useContext(GlobalContext)
     return (
         <>
             <StyledModal />
@@ -30,7 +25,7 @@ export const Modal = ({ }) => {
                 />
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6em', width: '70%' }}>
                     <Title title='Editar Card:' />
-                   <Form />
+                    <Form />
                 </div>
             </StyledForm>
 

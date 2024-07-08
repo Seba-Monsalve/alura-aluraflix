@@ -15,51 +15,43 @@ const keys = {
 
 
 export const Form = () => {
-    
-
     const { state, dispatch } = useContext(GlobalContext)
 
     const [video, setVideo] = useState(state.selectedVideo)
 
-    
-    useEffect(() => {
-    }, [video])
     const handleOnClick = (e) => {
         e.preventDefault()
         dispatch({ type: 'saveVideo' })
     }
-    const handleOnClean = () => {
-        setVideo((video) => {
-            return { ...video, [video[keys[video.name]]]: '' }
-        })
-        dispatch({ type: 'cleanSelectedVideo' })
-    }
+
+useEffect(() => {
+}, [video])
 
 
 
 
-    return (
-        <form >
-            {inputs.map(({ name, id, type, placeholder, options, rows = 4 }) => {
+return (
+    <form >
+        {inputs.map(({ name, id, type, placeholder, options, rows = 4 }) => {
 
-                switch (type) {
-                    case 'text':
-                        return <Input type={type} key={id} id={id} name={name} placeholder={placeholder} value={video[keys[name] || '']} />
-                    case 'dropdown':
-                        return <Dropdown key={id} id={id} name={name} options={options} value={video[keys[name]]} />
-                    case 'textarea':
-                        return <Textarea key={id} id={id} name={name} rows={rows} value={video[keys[name]]} />
-                    case 'submit':
-                        return (<StyledInput $color value={'Guardar'} type='submit' onClick={handleOnClick} />)
-                    case 'reset':
-                        return (<StyledInput text={'Limpiar'} type='reset' value={'Limpiar'} onClick={handleOnClean} />)
-                    default:
-                        return <></>
-                }
-            })
+            switch (type) {
+                case 'text':
+                    return <Input type={type} key={id} id={id} name={name} placeholder={placeholder} value={video[keys[name] || '']} />
+                case 'dropdown':
+                    return <Dropdown key={id} id={id} name={name} options={options} value={video[keys[name]]} />
+                case 'textarea':
+                    return <Textarea key={id} id={id} name={name} rows={rows} value={video[keys[name]]} />
+                case 'submit':
+                    return (<StyledInput $color value={'Guardar'} type='submit' onClick={handleOnClick} />)
+                case 'reset':
+                default:
+                    return <></>
             }
-        </form>
-    )
+        })
+        }
+
+    </form>
+)
 
 }
 

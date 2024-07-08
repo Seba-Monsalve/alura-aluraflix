@@ -1,52 +1,76 @@
 {
   "videos": [
-    {
-      "id": "3",
-      "title": "¿Cuáles son las principales áreas de la programación?",
-      "category": "Frontend",
-      "image_url": "https://caelum-online-public.s3.amazonaws.com/ESP-2052+-++React%3A+practicando+React+con+Js/282x425+-+Genesis.png",
-      "video_url": "https: //www.youtube.com/embed/03cxUlwLVt4?si=zVCUQNO-eS2RZQTO",
-      "description": "una breve descripcion"
-    },
-    {
-      "id": "5",
-      "title": "Video 5",
-      "category": "Backend",
-      "image_url": "https://img.youtube.com/vi/yNsZXU45kOc/mqdefault.jpg",
-      "video_url": "https://img.youtube.com/vi/yNsZXU45kOc/mqdefault.jpg",
-      "description": "Una descripcion"
-    },
-    {
-      "id": "6",
-      "title": "Video 6",
-      "category": "Backend",
-      "image_url": "https://img.youtube.com/vi/yNsZXU45kOc/mqdefault.jpg",
-      "video_url": "https://img.youtube.com/vi/yNsZXU45kOc/mqdefault.jpg",
-      "description": "Una descripcion"
-    },
-    {
-      "id": "7",
-      "title": "Video 7",
-      "category": "Innovación y Gestión",
-      "image_url": "https://img.youtube.com/vi/yNsZXU45kOc/mqdefault.jpg",
-      "video_url": "https://img.youtube.com/vi/yNsZXU45kOc/mqdefault.jpg",
-      "description": "Una descripcion"
-    },
-    {
-      "id": "8",
-      "title": "Video 8",
-      "category": "Innovación y Gestión",
-      "image_url": "https://img.youtube.com/vi/yNsZXU45kOc/mqdefault.jpg",
-      "video_url": "https://img.youtube.com/vi/yNsZXU45kOc/mqdefault.jpg",
-      "description": "Una descripcion"
-    },
-    {
-      "id": "9",
-      "title": "Video 9",
-      "category": "Innovación y Gestión",
-      "image_url": "https://img.youtube.com/vi/yNsZXU45kOc/mqdefault.jpg",
-      "video_url": "https://img.youtube.com/vi/yNsZXU45kOc/mqdefault.jpg",
-      "description": "Una descripcion"
-    }
+      {
+          "id": 1,
+          "title": "Como utilizar el Display block, inline, inline-block",
+          "category": "Frontend",
+          "image_url": "https://caelum-online-public.s3.amazonaws.com/ESP-2052+-++React%3A+practicando+React+con+Js/282x425+-+Jean.png",
+          "video_url": "https://www.youtube.com/embed/AG2QssLpQzI?si=6Yn355wcxAqU7_Ld",
+          "description": "una breve descripcion"
+      },
+      {
+          "id": 2,
+          "title": "Productividad en el trabajo remoto",
+          "category": "Frontend",
+          "image_url": "https://caelum-online-public.s3.amazonaws.com/ESP-2052+-++React%3A+practicando+React+con+Js/282x425+-+Gabi.png",
+          "video_url": "https://www.youtube.com/embed/AULPtYo25Lw?si=UGdKX1NSrEcQ0jfn",
+          "description": "una breve descripcion"
+      },
+      {
+          "id": 3,
+          "title": "¿Cuáles son las principales áreas de la programación?",
+          "category": "Frontend",
+          "image_url": "https://caelum-online-public.s3.amazonaws.com/ESP-2052+-++React%3A+practicando+React+con+Js/282x425+-+Genesis.png",
+          "video_url": "https: //www.youtube.com/embed/03cxUlwLVt4?si=zVCUQNO-eS2RZQTO",
+          "description": "una breve descripcion"
+      },
+      {
+          "id": 4,
+          "title": "Detección de intruso con IA",
+          "category": "Backend",
+          "image_url": "https://caelum-online-public.s3.amazonaws.com/ESP-2052+-++React%3A+practicando+React+con+Js/282x425+-+Ale.png",
+          "video_url": "https://www.youtube.com/embed/5T_Q_NtNLZE?si=M7D0JeagaKqsoaFs",
+          "description": "una breve descripcion"
+      },
+      {
+          "id": 5,
+          "title": "Video 5",
+          "category": "Backend",
+          "image_url": "https://img.youtube.com/vi/yNsZXU45kOc/mqdefault.jpg",
+          "video_url": "https://img.youtube.com/vi/yNsZXU45kOc/mqdefault.jpg",
+          "description": "Una descripcion"
+      },
+      {
+          "id": 6,
+          "title": "Video 6",
+          "category": "Backend",
+          "image_url": "https://img.youtube.com/vi/yNsZXU45kOc/mqdefault.jpg",
+          "video_url": "https://img.youtube.com/vi/yNsZXU45kOc/mqdefault.jpg",
+          "description": "Una descripcion"
+      },
+      {
+          "id": 7,
+          "title": "Video 7",
+          "category": "Innovación y Gestión",
+          "image_url": "https://img.youtube.com/vi/yNsZXU45kOc/mqdefault.jpg",
+          "video_url": "https://img.youtube.com/vi/yNsZXU45kOc/mqdefault.jpg",
+          "description": "Una descripcion"
+      },
+      {
+          "id": 8,
+          "title": "Video 8",
+          "category": "Innovación y Gestión",
+          "image_url": "https://img.youtube.com/vi/yNsZXU45kOc/mqdefault.jpg",
+          "video_url": "https://img.youtube.com/vi/yNsZXU45kOc/mqdefault.jpg",
+          "description": "Una descripcion"
+      },
+      {
+          "id": 9,
+          "title": "Video 9",
+          "category": "Innovación y Gestión",
+          "image_url": "https://img.youtube.com/vi/yNsZXU45kOc/mqdefault.jpg",
+          "video_url": "https://img.youtube.com/vi/yNsZXU45kOc/mqdefault.jpg",
+          "description": "Una descripcion"
+      }
   ]
 }
