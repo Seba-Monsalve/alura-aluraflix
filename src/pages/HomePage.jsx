@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 import { Badge, Category, Modal, Paragraph, Title } from '../components'
 import { useContext, useEffect } from "react"
-import { GlobalContext } from "../context/GlobalProvider"
+import { GlobalContext, CASES } from "../context/GlobalProvider"
 
 
 export const HomePage = () => {
@@ -10,10 +10,10 @@ export const HomePage = () => {
   const { state, dispatch } = useContext(GlobalContext)
 
   useEffect(() => {
-    if(state.firstLoad)
-    fetch('http://localhost:3000/videos')
-      .then(resp => resp.json())
-      .then(data => dispatch({ type: 'loadVideos', payload: data }))
+    if (state.firstLoad)
+      fetch('http://localhost:3000/videos')
+        .then(resp => resp.json())
+        .then(data => dispatch({ type: CASES.LOAD_VIDEOS, payload: data }))
 
   }, [state.firstLoad])
 
