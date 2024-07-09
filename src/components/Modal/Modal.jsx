@@ -3,7 +3,7 @@ import { IoCloseCircle } from "react-icons/io5";
 import {Title,  } from "../";
 
 import { useContext } from "react";
-import { GlobalContext } from "../../context/GlobalProvider";
+import { GlobalContext,CASES } from "../../context/GlobalProvider";
 import { Form } from "../Forms/Form";
 
 
@@ -16,7 +16,7 @@ export const Modal = ({ }) => {
             <StyledModal />
             <StyledForm>
                 <IoCloseCircle
-                    onClick={() => dispatch({ type: 'toggleModal', payload: null })} size={'2em'} color={'white'}
+                    onClick={() => dispatch({ type: CASES.TOOGLE_MODAL, payload: null })} size={'2em'} color={'white'}
                     style={{
                         position: 'relative',
                         right: '-45%',

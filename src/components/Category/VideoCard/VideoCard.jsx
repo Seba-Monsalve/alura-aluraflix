@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { IoTrashBinOutline, IoPencilOutline } from "react-icons/io5";
 import { useContext } from 'react';
-import { GlobalContext } from '../../../context/GlobalProvider';
+import { GlobalContext ,CASES} from '../../../context/GlobalProvider';
 
 
 export const VideoCard = ({ video, color }) => {
@@ -11,8 +11,8 @@ export const VideoCard = ({ video, color }) => {
     const { state, dispatch } = useContext(GlobalContext)
 
     const click = {
-        'delete': () => dispatch({ type: 'deleteVideo', payload: id }),
-        'edit': () => dispatch({ type: 'toggleModal', payload:  video  })
+        'delete': () => dispatch({ type: CASES.DELETE_VIDEO, payload: id }),
+        'edit': () => dispatch({ type: CASES.TOOGLE_MODAL, payload:  video  })
     }
 
     // NECESITO SACAR LOS VIDEOS DEL GET

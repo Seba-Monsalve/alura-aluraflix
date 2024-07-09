@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { Input, Dropdown, Textarea } from '../'
 import { inputs } from "../../data/inputs";
-import { GlobalContext } from '../../context/GlobalProvider';
+import { GlobalContext, CASES } from '../../context/GlobalProvider';
 import styled from 'styled-components';
 
 const keys = {
@@ -13,21 +13,25 @@ const keys = {
 }
 
 
-export const Form = () => {
+export const Form = ({ size, onClick }) => {
     const { state, dispatch } = useContext(GlobalContext)
     const video = state.selectedVideo;
+    const hasError = state.videoError;
+
+
 
     const handleOnClick = (e) => {
-        console.log();
-        dispatch({ type: 'saveVideo' })
+        e.preventDefault();
+        dispatch({ type: CASES.SAVE_VIDEO })
     }
 
     const handleOnChange = (e) => {
-        dispatch({ type: 'editVideo', payload: { name: e.target.name, value: e.target.value } })
+        console.log(e)
+        dispatch({ type: CASES.EDIT_FIELD, payload: { name: e.target.name, value: e.target.value } })
     }
 
     const handleOnReset = () => {
-        dispatch({ type: 'cleanSelectedVideo' })
+        dispatch({ type: CASES.CLEAN_FIELDS })
     }
 
     return (
@@ -35,16 +39,16 @@ export const Form = () => {
             {inputs.map(({ name, id, type, placeholder, options, rows = 4 }) => {
                 switch (type) {
                     case 'text':
-                        return <Input type={type} key={id} id={id} name={name} placeholder={placeholder} value={video[keys[name]]} onChange={handleOnChange} />
+                        return <Input size={size} type={type} key={id} id={id} name={name} placeholder={placeholder} value={video[keys[name]]} onChange={handleOnChange} hasError={hasError} />
                     case 'dropdown':
-                        return <Dropdown key={id} id={id} name={name} options={options} value={video[keys[name]]} />
+                        return <Dropdown size={size} key={id} id={id} name={name} options={options} value={video[keys[name]]} onChange={handleOnChange} />
                     case 'textarea':
-                        return <Textarea key={id} id={id} name={name} rows={rows} value={video[keys[name]]} onChange={handleOnChange} />
+                        return <Textarea size={size} key={id} id={id} name={name} rows={rows} value={video[keys[name]]} onChange={handleOnChange} hasError={hasError} />
                 }
             })
             }
-            (<StyledInput $color value={'Guardar'} type='submit' onClick={handleOnClick} />)
-            (<StyledInput text={'Limpiar'} type='reset' value={'Limpiar'} onClick={handleOnReset} />)
+            <StyledInput $color value={'Guardar'} type='submit' onClick={onClick ? onClick : handleOnClick} />
+            <StyledInput text={'Limpiar'} type='reset' value={'Limpiar'} onClick={handleOnReset} />
         </form>
     )
 }
