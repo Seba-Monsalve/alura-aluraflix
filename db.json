@@ -9,12 +9,12 @@
       "description": "una breve descripcion"
     },
     {
-      "id": "5",
-      "title": "Video 5",
+      "id": "4",
+      "title": "Detección de intruso con IA",
       "category": "Backend",
-      "image_url": "https://img.youtube.com/vi/yNsZXU45kOc/mqdefault.jpg",
-      "video_url": "https://img.youtube.com/vi/yNsZXU45kOc/mqdefault.jpg",
-      "description": "Una descripcion"
+      "image_url": "https://caelum-online-public.s3.amazonaws.com/ESP-2052+-++React%3A+practicando+React+con+Js/282x425+-+Ale.png",
+      "video_url": "https://www.youtube.com/embed/5T_Q_NtNLZE?si=M7D0JeagaKqsoaFs",
+      "description": "una breve descripcion"
     },
     {
       "id": "6",

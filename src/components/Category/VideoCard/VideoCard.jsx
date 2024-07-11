@@ -6,16 +6,18 @@ import { GlobalContext ,CASES} from '../../../context/GlobalProvider';
 
 export const VideoCard = ({ video, color }) => {
 
-    const { title, id, categorie, image_url, video_url, description } = video;
+    const { title, id,  image_url } = video;
 
-    const { state, dispatch } = useContext(GlobalContext)
+    const {  dispatch } = useContext(GlobalContext)
 
     const click = {
         'delete': () => dispatch({ type: CASES.DELETE_VIDEO, payload: id }),
         'edit': () => dispatch({ type: CASES.TOOGLE_MODAL, payload:  video  })
     }
 
-    // NECESITO SACAR LOS VIDEOS DEL GET
+
+    
+
     return (
         <StyledVideoCard $color={color}>
             <h2 style={{
@@ -28,6 +30,7 @@ export const VideoCard = ({ video, color }) => {
                 width: '100%'
             }}>{title}</h2>
             <StyledImage src={image_url} alt="" />
+            
             <div style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'space-around'
                 ,

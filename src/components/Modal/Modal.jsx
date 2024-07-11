@@ -60,6 +60,6 @@ background-color:black;
 padding: 1em;
 border-radius:  10px ;
 border:2px solid #6BD1FF;
-width:40%;
+width:max(50%,250px);
 `
 

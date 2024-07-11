@@ -27,7 +27,9 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-
+svg {
+  fill: currentColor;
+}
 :root{
 	font-family: "Roboto", sans-serif;
  	 font-weight: 300;

@@ -1,8 +1,7 @@
-import React from 'react'
 import styled from 'styled-components'
 
-import { Button } from '../'
-import { Link } from 'react-router-dom'
+import { MainButton } from '../'
+import { Link, useLocation } from 'react-router-dom'
 
 const StyledHeader = styled.header`
     height: 100px;
@@ -14,6 +13,9 @@ const StyledHeader = styled.header`
     padding: 0em 2em;
     border-bottom: solid 4px #2271D1;
     box-shadow: 0px 5px 29px 0px #2271D1B2;
+    @media (max-width: 600px) {
+    display:none
+  }
 `
 
 const StyledImage = styled.img`
@@ -24,17 +26,19 @@ opacity: 0px;
 `
 
 export const Header = () => {
+
+    const { pathname } = useLocation()
     return (
         <StyledHeader >
             <Link to="">
                 <StyledImage src="/logo.png" alt="logo_alura" />
             </Link>
-            <ul style={{display:'flex'}}>
+            <ul style={{ display: 'flex' }}>
                 <li>
-                    <Link to={'/'}><Button color text='Home' />                    </Link>
+                    <Link to={'/'}><MainButton selected={(pathname == '/')} text='Home'  /></Link>
                 </li>
                 <li>
-                    <Link to={'/new-video'}>  <Button text='Nuevo Video' />                </Link>
+                    <Link to={'/new-video'}>  <MainButton selected={(pathname == '/new-video')} text='Nuevo Video'x/></Link>
                 </li>
             </ul>
         </StyledHeader>
