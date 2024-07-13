@@ -2,13 +2,12 @@ import { Title, Paragraph } from '../components/'
 import styled from 'styled-components'
 import { useContext } from 'react'
 import { CASES, GlobalContext } from '../context/GlobalProvider'
-import { useNavigate } from 'react-router-dom'
 import { Form } from '../components/Forms/Form'
 
 
 export const NewVideoPage = () => {
 
-  const { state, dispatch } = useContext(GlobalContext)
+  const {  dispatch } = useContext(GlobalContext)
 
 
   const onHandleSave = (e) => {

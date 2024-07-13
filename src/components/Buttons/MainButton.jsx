@@ -1,7 +1,5 @@
 import styled from "styled-components"
 
-
-
 const StyledButton = styled.button`
 height:40px;
 display:flex;
@@ -15,10 +13,21 @@ gap:10px;
     font-size: 15px;
     font-weight: 900;
     cursor:pointer;
-    background-color: ${props => props.$selected ? '#000000E5' : 'transparent'};
+    background-color: transparent;
     color: ${props => props.$selected ? '#2271D1' : 'white'};
     border:3px solid ${props => props.$selected ? '#2271D1' : 'white'};
     box-shadow: ${props => props.$selected ? '0px 0px 12px 4px #2271D1 inset' : ''};
+
+    transition:0.5s ease all;
+
+    &:hover{
+
+    border:3px solid transparent;
+    box-shadow: none;
+
+
+    }
+   
 `
 
 const StyledSaveButton = styled(StyledButton)`

@@ -2,14 +2,8 @@ import React, { useContext } from 'react'
 import { Input, Dropdown, Textarea, MainButton, SaveButton, CleanButton } from '../'
 import { inputs } from "../../data/inputs";
 import { GlobalContext, CASES } from '../../context/GlobalProvider';
+import { keys } from '../../utils/keys';
 
-const keys = {
-    "Titulo": "title",
-    "Categoria": "category",
-    "Imagen": "image_url",
-    "Video": "video_url",
-    "Descripcion": "description",
-}
 
 export const Form = ({ size, onClick }) => {
     const { state, dispatch } = useContext(GlobalContext)
@@ -45,7 +39,7 @@ export const Form = ({ size, onClick }) => {
                 }
             })
             }
-            <div style={{marginTop:'10px', display: 'flex', alignItems: 'center', justifyContent: 'space-around',width:'100%'}}>
+            <div style={{ marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'space-around', width: '100%' }}>
                 <SaveButton color value={'Guardar'} type='submit' onClick={onClick ? onClick : handleOnClick} text={'Guardar'} />
                 <CleanButton text={'Limpiar'} type='reset' value={'Limpiar'} onClick={handleOnReset} />
             </div>

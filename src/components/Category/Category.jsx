@@ -40,8 +40,7 @@ const categories = [
 
 export const Category = () => {
 
-
-  return (
+   return (
     <StyledCategory>
       {
         categories.map(category => <VideoCardList category={category} key={category.title} />)

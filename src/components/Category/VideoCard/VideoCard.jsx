@@ -7,16 +7,12 @@ import { GlobalContext ,CASES} from '../../../context/GlobalProvider';
 export const VideoCard = ({ video, color }) => {
 
     const { title, id,  image_url } = video;
-
     const {  dispatch } = useContext(GlobalContext)
 
     const click = {
         'delete': () => dispatch({ type: CASES.DELETE_VIDEO, payload: id }),
         'edit': () => dispatch({ type: CASES.TOOGLE_MODAL, payload:  video  })
     }
-
-
-    
 
     return (
         <StyledVideoCard $color={color}>
@@ -76,8 +72,6 @@ const StyledButtons = styled.div`
   color:white;
   padding:1em;
 `
-
-
 const StyledImage = styled.img`
     width:250px;
     height:140px;

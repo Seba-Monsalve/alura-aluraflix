@@ -6,7 +6,6 @@ export const Title = ({ title }) => {
     )
 }
 
-
 const StyledTitle = styled.h1`
 font-family: Roboto;
 font-size: xx-large;

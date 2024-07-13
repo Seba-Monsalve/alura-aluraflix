@@ -41,10 +41,8 @@ gap:20px;
   }
 `
 
-
 export const Footer = () => {
   const { pathname } = useLocation()
-
   return (
     <StyledFooter>
 

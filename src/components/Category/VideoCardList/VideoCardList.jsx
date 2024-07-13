@@ -6,10 +6,11 @@ import { GlobalContext } from '../../../context/GlobalProvider';
 
 export const VideoCardList = ({ category }) => {
     const { title, color } = category;
-
     const { state } = useContext(GlobalContext)
     const videos = state.videos.filter(video => title.toLowerCase() == video.category.toLowerCase());
 
+    if (videos.length == 0)
+        return (<></>)
     return (
         <>
             <StyledBadge $color={color}>
