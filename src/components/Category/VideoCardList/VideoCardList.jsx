@@ -7,9 +7,8 @@ import { GlobalContext } from '../../../context/GlobalProvider';
 export const VideoCardList = ({ category }) => {
     const { title, color } = category;
 
-    const { state, dispatch } = useContext(GlobalContext)
+    const { state } = useContext(GlobalContext)
     const videos = state.videos.filter(video => title.toLowerCase() == video.category.toLowerCase());
-
 
     return (
         <>
@@ -37,7 +36,7 @@ const StyledVideoList = styled.div`
   justify-content:space-evenly;
   width:100%;
   padding: 0.5em 0;
-  gap:1em
+  gap:1em;
 `
 
 const StyledBadge = styled.div`
@@ -50,7 +49,11 @@ text-align: center;
 border-radius:15px;
 margin-bottom:1em;
 color:white;
-width:300px
+width:300px;
+
+@media (max-width: 700px) {
+  width:100%;
+  }
 
 
 `

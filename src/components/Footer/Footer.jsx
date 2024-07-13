@@ -8,7 +8,7 @@ width: 168.45px;
 height: 40px;
 gap: 0px;
 opacity: 0px;
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     display:none
   }
 `
@@ -22,6 +22,12 @@ const StyledFooter = styled.footer`
     padding: 0em 2em;
     border-top: solid 4px #2271D1;
     box-shadow: 0px 5px 29px 0px #2271D1B2;
+    
+@media (max-width: 700px) {
+    position:fixed;
+    bottom:0;
+    width:100%;
+  }
 `
 
 
@@ -30,7 +36,7 @@ display:flex;
 align-items:center;
 justify-content:center;
 gap:20px;
-@media (min-width: 600px) {
+@media (min-width: 700px) {
     display:none
   }
 `

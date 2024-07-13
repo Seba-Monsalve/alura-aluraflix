@@ -36,7 +36,7 @@ padding:1.5em 1em;
 `;
 
 const StyledSvg = styled.img`
-  @media (min-width: 600px) {
+  @media (min-width: 700px) {
     display:none
   }
 `

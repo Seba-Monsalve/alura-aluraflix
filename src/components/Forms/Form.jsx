@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Input, Dropdown, Textarea ,MainButton, SaveButton, CleanButton} from '../'
+import { Input, Dropdown, Textarea, MainButton, SaveButton, CleanButton } from '../'
 import { inputs } from "../../data/inputs";
 import { GlobalContext, CASES } from '../../context/GlobalProvider';
 
@@ -33,20 +33,22 @@ export const Form = ({ size, onClick }) => {
     }
 
     return (
-        <form  >
+        <form style={{ width: { size }, display: 'flex', flexDirection: 'column', alignItems: 'center', }}  >
             {inputs.map(({ name, id, type, placeholder, options, rows = 4 }) => {
                 switch (type) {
                     case 'text':
-                        return <Input size={size} type={type} key={id} id={id} name={name} placeholder={placeholder} value={video[keys[name]]} onChange={handleOnChange} hasError={hasError} />
+                        return <Input size={'60vw'} type={type} key={id} id={id} name={name} placeholder={placeholder} value={video[keys[name]]} onChange={handleOnChange} hasError={hasError} />
                     case 'dropdown':
-                        return <Dropdown size={size} key={id} id={id} name={name} options={options} value={video[keys[name]]} onChange={handleOnChange} />
+                        return <Dropdown size={'60vw'} key={id} id={id} name={name} options={options} value={video[keys[name]]} onChange={handleOnChange} />
                     case 'textarea':
-                        return <Textarea size={size} key={id} id={id} name={name} rows={rows} value={video[keys[name]]} onChange={handleOnChange} hasError={hasError} />
+                        return <Textarea size={'60vw'} key={id} id={id} name={name} rows={rows} value={video[keys[name]]} onChange={handleOnChange} hasError={hasError} />
                 }
             })
             }
-            <SaveButton color value={'Guardar'} type='submit' onClick={onClick ? onClick : handleOnClick} text={'Guardar'}/>
-            <CleanButton text={'Limpiar'} type='reset' value={'Limpiar'} onClick={handleOnReset} />
+            <div style={{marginTop:'10px', display: 'flex', alignItems: 'center', justifyContent: 'space-around',width:'100%'}}>
+                <SaveButton color value={'Guardar'} type='submit' onClick={onClick ? onClick : handleOnClick} text={'Guardar'} />
+                <CleanButton text={'Limpiar'} type='reset' value={'Limpiar'} onClick={handleOnReset} />
+            </div>
         </form>
     )
 }
