@@ -6,7 +6,7 @@ import { VideoCardList } from './VideoCardList/VideoCardList'
 const categories = [
   {
     title: 'Frontend',
-    color:'#6BD1FF',
+    color: '#6BD1FF',
     videos: [
       { id: 1 },
       { id: 2 },
@@ -16,7 +16,7 @@ const categories = [
   },
   {
     title: 'Backend',
-    color:'#00C86F',
+    color: '#00C86F',
     videos: [
       { id: 1 },
       { id: 2 },
@@ -26,7 +26,7 @@ const categories = [
   },
   {
     title: 'Innovación y Gestión',
-    color:'#FFBA05',
+    color: '#FFBA05',
     videos: [
       { id: 1 },
       { id: 2 },
@@ -40,8 +40,7 @@ const categories = [
 
 export const Category = () => {
 
-  
-  return (
+   return (
     <StyledCategory>
       {
         categories.map(category => <VideoCardList category={category} key={category.title} />)
@@ -56,4 +55,8 @@ export const Category = () => {
 const StyledCategory = styled.div`
 background-color: black;
 padding: 0 2em;
+
+@media (max-width: 700px) {
+  padding-bottom:110px;
+  }
 `

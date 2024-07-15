@@ -11,6 +11,4 @@ const StyledSpan = styled.span`
     font-size:small;
     margin-top:-5px;
     margin-bottom:5px;
-
-
 `

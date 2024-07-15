@@ -13,7 +13,7 @@ const StyledHeader = styled.header`
     padding: 0em 2em;
     border-bottom: solid 4px #2271D1;
     box-shadow: 0px 5px 29px 0px #2271D1B2;
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
     display:none
   }
 `

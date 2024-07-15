@@ -4,7 +4,6 @@ import { MensajeError } from '../MensajeError'
 import { keys } from '../../../utils/keys'
 
 export const Textarea = ({ id, name, rows, size, value='' ,onChange,hasError}) => {
-console.log(value);
     return (
         <Fieldset size={size}>
             <label htmlFor="id">{name}</label>

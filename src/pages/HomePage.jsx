@@ -18,7 +18,6 @@ export const HomePage = () => {
   }, [state.firstLoad])
 
 
-
   return (
     <>
       <StyledHome >
@@ -62,22 +61,23 @@ const StyledHome = styled.div`
       color: #F5F5F5;
       background-color:transparent;
       padding: 8em 0;
+      
+@media (max-width: 700px) {
+  padding:  0;
+  }
       `
 
 const StyledColumn = styled.div`
       display:flex;
       flex-flow:column wrap;
       padding:2em;
-      width:40%;
+      width:50%;
+      
+@media (max-width: 700px) {
+  width:100%;
+  }
       `
 
-const StyledTitle = styled.h2`
-      font-family: Roboto;
-      font-size: 46px;
-      font-weight: 400;
-      line-height: 53.91px;
-      text-align: left;
-`
 
 const StyledImage = styled.img`
   border-radius:30px;

@@ -73,13 +73,13 @@ const GlobalContextReducer = (state, action) => {
                 fetch('http://localhost:3000/videos/' + state.selectedVideo.id, {
                     method: 'PUT',
                     headers: {
-                        "Access-Control-Allow-Origin": "http://localhost:5173",
+                        "Access-Control-Allow-Origin": "*",
                         "Access-Control-Allow-Headers": "*",
                         body: JSON.stringify(state.selectedVideo)
                     }
                 })
                     .then(res => res.json()) // or res.json()
-                    .then(res => console.log(res)).catch
+                    .catch
                 const newVideos = state.videos.map(video => {
                     if (video.id == state.selectedVideo.id)
                         return state.selectedVideo;
@@ -105,7 +105,7 @@ const GlobalContextReducer = (state, action) => {
                     }
                 })
                     .then(res => res.json()) // or res.json()
-                    .then(res => console.log(res)).catch
+                    .catch
                 return {
                     ...state, videos: [...state.videos, newVideo], isModalOpen: false, selectedVideo: { id: '', title: '', description: '', image_url: '', video_url: '', category: 'Frontend' }
                 }
@@ -117,7 +117,6 @@ const GlobalContextReducer = (state, action) => {
                     method: 'DELETE',
                 })
                     .then(res => res.text()) // or res.json()
-                    .then(res => console.log(res))
                 return {
                     ...state, videos: state.videos.filter((video) => {
                         return video.id != action.payload
