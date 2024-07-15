@@ -5,9 +5,9 @@ height:40px;
 display:flex;
 align-items:center;
 justify-content:center;
-gap:10px;
+gap:5px;
     padding: 0.5em 2em;
-    margin:0.5em;
+    margin:0.5em 0.5em 0 0 ;
     border-radius: 10px ;
     font-family: Source Sans Pro;
     font-size: 15px;
@@ -24,7 +24,7 @@ gap:10px;
 
     border:3px solid transparent;
     box-shadow: none;
-
+background-color:#2271D13d;
 
     }
    
@@ -41,10 +41,11 @@ background-color:#2271D13d;
 color:#2271D1;
 box-shadow: none;
 padding:1.5em 1em;
-
+transition: 1s all ease;
 `;
 
 const StyledSvg = styled.img`
+
   @media (min-width: 700px) {
     display:none
   }

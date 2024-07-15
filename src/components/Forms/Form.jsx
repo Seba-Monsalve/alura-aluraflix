@@ -3,9 +3,10 @@ import { Input, Dropdown, Textarea, MainButton, SaveButton, CleanButton } from '
 import { inputs } from "../../data/inputs";
 import { GlobalContext, CASES } from '../../context/GlobalProvider';
 import { keys } from '../../utils/keys';
+import styled from 'styled-components';
 
 
-export const Form = ({ size, onClick }) => {
+export const Form = ({ size = '100%', onClick }) => {
     const { state, dispatch } = useContext(GlobalContext)
     const video = state.selectedVideo;
     const hasError = state.videoError;
@@ -18,7 +19,6 @@ export const Form = ({ size, onClick }) => {
     }
 
     const handleOnChange = (e) => {
-        console.log(e)
         dispatch({ type: CASES.EDIT_FIELD, payload: { name: e.target.name, value: e.target.value } })
     }
 
@@ -28,22 +28,30 @@ export const Form = ({ size, onClick }) => {
 
     return (
         <form style={{ width: { size }, display: 'flex', flexDirection: 'column', alignItems: 'center', }}  >
-            {inputs.map(({ name, id, type, placeholder, options, rows = 4 }) => {
+            {inputs.map(({ name, id, type, placeholder, options, rows = 3 }) => {
                 switch (type) {
                     case 'text':
-                        return <Input size={'60vw'} type={type} key={id} id={id} name={name} placeholder={placeholder} value={video[keys[name]]} onChange={handleOnChange} hasError={hasError} />
+                        return <Input size={size} type={type} key={id} id={id} name={name} placeholder={placeholder} value={video[keys[name]]} onChange={handleOnChange} hasError={hasError} />
                     case 'dropdown':
-                        return <Dropdown size={'60vw'} key={id} id={id} name={name} options={options} value={video[keys[name]]} onChange={handleOnChange} />
+                        return <Dropdown size={size} key={id} id={id} name={name} options={options} value={video[keys[name]]} onChange={handleOnChange} />
                     case 'textarea':
-                        return <Textarea size={'60vw'} key={id} id={id} name={name} rows={rows} value={video[keys[name]]} onChange={handleOnChange} hasError={hasError} />
+                        return <Textarea size={size} key={id} id={id} name={name} rows={rows} value={video[keys[name]]} onChange={handleOnChange} hasError={hasError} />
                 }
             })
             }
-            <div style={{ marginTop: '10px', display: 'flex', alignItems: 'center', justifyContent: 'space-around', width: '100%' }}>
+            <StyledButtons >
                 <SaveButton color value={'Guardar'} type='submit' onClick={onClick ? onClick : handleOnClick} text={'Guardar'} />
                 <CleanButton text={'Limpiar'} type='reset' value={'Limpiar'} onClick={handleOnReset} />
-            </div>
+            </StyledButtons>
         </form>
     )
 }
 
+const StyledButtons = styled.div`
+  display: flex; align-items: center; justify-content: space-around; width: 100% ;
+
+ @media (max-width: 700px) {
+    flex-direction:column;
+  }
+ 
+` 

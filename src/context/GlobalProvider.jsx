@@ -73,7 +73,7 @@ const GlobalContextReducer = (state, action) => {
                 fetch('http://localhost:3000/videos/' + state.selectedVideo.id, {
                     method: 'PUT',
                     headers: {
-                        "Access-Control-Allow-Origin": "http://localhost:5173",
+                        "Access-Control-Allow-Origin": "*",
                         "Access-Control-Allow-Headers": "*",
                         body: JSON.stringify(state.selectedVideo)
                     }

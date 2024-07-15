@@ -13,7 +13,7 @@ opacity: 0px;
   }
 `
 const StyledFooter = styled.footer`
-    height: 100px;
+    height:70px;
     background-color: #262626;
     display: flex;
     flex-flow: row wrap;
